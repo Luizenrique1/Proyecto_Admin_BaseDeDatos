@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 //import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
+ *jdbc:postgresql://localhost:5432/Bodega
  * @author Luiz
  */
 public class Pantalla extends javax.swing.JFrame {

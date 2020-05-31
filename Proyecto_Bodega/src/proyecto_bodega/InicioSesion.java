@@ -40,6 +40,7 @@ public class InicioSesion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("base-de-datos.png")).getImage());
+        setLocation(new java.awt.Point(0, 0));
         setResizable(false);
 
         User.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -117,8 +118,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("Contrasena");
 
         pack();
         setLocationRelativeTo(null);
