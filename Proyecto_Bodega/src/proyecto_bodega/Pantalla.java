@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 import java.util.HashMap;
@@ -701,6 +702,14 @@ public class Pantalla extends javax.swing.JFrame {
         // TODO add your handling code here:
         mod.setVisible(false);
         boolean validacion=true;
+        
+        try {
+            ResultSet res = Conexion.Conexion.Consulta("SELECT public.obtenercantidad()");
+            res.next();
+            System.out.println("cantidad: "+ res.getInt(1));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         if (!isValidName(Alta_nombreProducto.getText())) {
            validacion=false;
            JOptionPane.showMessageDialog(this,"Campo invalido o vacia en nombre producto","Error",JOptionPane.WARNING_MESSAGE);
@@ -719,6 +728,8 @@ public class Pantalla extends javax.swing.JFrame {
              //JOptionPane.showMessageDialog(this,"Campo invalido o vacia","Error",JOptionPane.WARNING_MESSAGE);
         }else{
             try {
+                
+                
                 Conexion.Conexion.Ejecutar("execute InsertarProducto "+"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
                +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+ "," +0+",p,"+ 0+";");
                 reset_buttonActionPerformed(evt);
