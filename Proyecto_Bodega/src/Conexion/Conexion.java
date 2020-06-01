@@ -59,12 +59,12 @@ public class Conexion {
             declara.executeQuery(consulta);
             
         } catch (SQLException e) {
-            System.out.println(e);;
+            System.out.println(e);
             if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
                 JOptionPane.showMessageDialog(null,
                     "Se actualizo el base de datos correctamente");
                
-            }else{
+            }else if (!e.getMessage().equals("La consulta no retornó ningún resultado.")){
             JOptionPane.showMessageDialog(null,"Producto con ese nombre ya existe " ,
                     "ERROR",JOptionPane.ERROR_MESSAGE);
                     //System.out.println(e);

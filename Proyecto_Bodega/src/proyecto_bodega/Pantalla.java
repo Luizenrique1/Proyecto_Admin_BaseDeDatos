@@ -731,15 +731,22 @@ public class Pantalla extends javax.swing.JFrame {
                         +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
                         +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
                 }else{
-                
+                    
+                    res = Conexion.Conexion.Consulta("SELECT public.obtenerint()");
+                    res.next();
+                    cantidad =  res.getInt(1);
+                        Conexion.Conexion.Ejecutar("INSERT INTO public.productos(" +
+"                       idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO"+cantidad+"'"+","+cantidad+","
+                        +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
+                        +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
                 
                 
                 }
                
                 //reset_buttonActionPerformed(evt);
-            } catch (SQLException e) {
-                System.out.println(e);
-                //JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
+            } catch (Exception e) {
+               // System.out.println(e);
+                JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
             }
         actualizar_tabla();
         }

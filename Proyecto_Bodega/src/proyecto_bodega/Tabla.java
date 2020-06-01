@@ -114,7 +114,7 @@ public class Tabla{
     public void ver_tabla_maestra(JTable tabla){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
-        res=Conexion.Conexion.Consulta("select * from producto");
+        res=Conexion.Conexion.Consulta("select * from productos");
         try {
             
             while(res.next()){
