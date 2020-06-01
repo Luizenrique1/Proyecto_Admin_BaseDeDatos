@@ -288,10 +288,13 @@ public class Pedido_nuevo extends javax.swing.JFrame {
                 int cantidad =  res.getInt(1); 
                 System.out.println(cantidad);
                 if (cantidad==0) {
-                    res = Conexion.Conexion.Consulta("select idproducto from productos where nombre="+Md_Nombre_producto.getText());
+                    res = Conexion.Conexion.Consulta("select idproducto from productos where nombre='"+Md_Nombre_producto.getText()+"';");
+                    res.next();
                     String idproducto =  res.getString(1); 
-                    System.out.println(idproducto);
-
+                    Conexion.Conexion.Ejecutar("INSERT INTO pedido(" +
+                    "idpedido, idpumero, idproducto, cantidad, calle, numero_domicilio, numero_tele)" +
+                    "VALUES ('PE1',1,'"+idproducto+"',"+PE_Cantidad.getValue()+",'"+NP_Calle.getText() +"','"+ NP_NUMCASa.getText()+"','"+NP_NT.getText()+"');" );
+            
                 }else{
                 
                 
@@ -301,7 +304,7 @@ public class Pedido_nuevo extends javax.swing.JFrame {
             
             } catch (SQLException e) {
                 //System.out.println(e);
-               // JOptionPane.showMessageDialog(this,"Error al insertar datos","Error",JOptionPane.WARNING_MESSAGE);
+               JOptionPane.showMessageDialog(this,"Error al insertar datos","Error",JOptionPane.WARNING_MESSAGE);
             }
 
         }
