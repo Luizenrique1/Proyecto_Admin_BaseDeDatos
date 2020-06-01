@@ -26,7 +26,7 @@ public class Modificaciones extends javax.swing.JFrame {
     ResultSet res;
     public void insertar_datos(String nombre,int index,String marca,double peso,double precio){
         
-        res=Conexion.Conexion.Consulta("Select IDProducto From Producto where nombre=" +"'"+nombre+"'" );
+        res=Conexion.Conexion.Consulta("Select IDProducto From productos where nombre=" +"'"+nombre+"'" );
         
         
         
@@ -231,7 +231,7 @@ public class Modificaciones extends javax.swing.JFrame {
         }else{
             try {
                this.setVisible(false);
-               Conexion.Conexion.Ejecutar("BEGIN TRAN \n update producto SET Nombre="+"'"+Md_Nombre_producto.getText() +"'"+ "," +
+               Conexion.Conexion.Ejecutar("BEGIN TRAN \n update productos SET Nombre="+"'"+Md_Nombre_producto.getText() +"'"+ "," +
                                "tipo="+"'"+Md_Tipo.getSelectedItem().toString()+"'"+","+
                                "marca="+"'"+ Md_Marca.getText() +"'"+","+
                                "peso="+ Md_Peso.getValue()+","+"precio="+Md_Precio.getValue()+" where IDProducto ='"+ID_prodcuto_selected+"'; \n COMMIT TRAN");

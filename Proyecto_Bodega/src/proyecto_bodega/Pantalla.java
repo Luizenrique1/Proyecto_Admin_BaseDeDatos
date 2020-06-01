@@ -830,25 +830,25 @@ public class Pantalla extends javax.swing.JFrame {
     private void Buscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar
         // TODO add your handling code here:
         if (con_rb_NP.isSelected()) {
-            t.ver_tabla(tabla_vista, "Select * from vista_producto Where Nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+            t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
         }
         if (rb_tipo.isSelected()) {
             if(con_Tipo.getSelectedIndex()!=0)
-            t.ver_tabla(tabla_vista, "Select * from vista_producto Where Tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
+            t.ver_tabla(tabla_vista, "Select * from vistaproducto Where tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
         }
         if (rb_marca.isSelected()) {
-             t.ver_tabla(tabla_vista, "Select * from vista_producto Where Marca Like '%" + con_Marca.getText()+"%';");
+             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';");
         }
         if (rb_peso.isSelected()) {
             if((int)con_peso.getValue()>0){
-             t.ver_tabla(tabla_vista, "Select * from vista_producto Where peso =" + con_peso.getValue()+";");
+             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where peso =" + con_peso.getValue()+";");
             }else{
             actualizar_tabla();
             }
         }
         if (rb_precio.isSelected()) {
             if((int)con_Precio.getValue()>0){
-             t.ver_tabla(tabla_vista, "Select * from vista_producto Where precio =" + con_Precio.getValue()+";");
+             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where precio =" + con_Precio.getValue()+";");
             }else{
             actualizar_tabla();
             }
@@ -874,21 +874,21 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void con_Nombre_Producto_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_con_Nombre_Producto_txtKeyTyped
         // TODO add your handling code here:
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
     }//GEN-LAST:event_con_Nombre_Producto_txtKeyTyped
 
     private void con_MarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_con_MarcaKeyTyped
         // TODO add your handling code here:
-         t.ver_tabla(tabla_vista, "Select * from vista_producto Where Marca Like '%" + con_Marca.getText()+"%';");
-         t.ver_tabla(tabla_vista, "Select * from vista_producto Where Marca Like '%" + con_Marca.getText()+"%';");
+         t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';");
+         t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';");
     }//GEN-LAST:event_con_MarcaKeyTyped
 
     private void con_TipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_con_TipoItemStateChanged
         // TODO add your handling code here:
         if (con_Tipo.getSelectedIndex()>0) {
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
         }else{
         
         actualizar_tabla();
@@ -902,7 +902,7 @@ public class Pantalla extends javax.swing.JFrame {
             con_peso.setValue(0);
         }
         if((int)con_peso.getValue()>0 && !con_peso.getValue().equals("")){
-             t.ver_tabla(tabla_vista, "Select * from vista_producto Where peso =" + con_peso.getValue()+";");
+             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where peso =" + con_peso.getValue()+";");
             }else{
             actualizar_tabla();
             }
@@ -911,16 +911,16 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void con_Nombre_Producto_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_con_Nombre_Producto_txtKeyReleased
         // TODO add your handling code here:
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
        
         
     }//GEN-LAST:event_con_Nombre_Producto_txtKeyReleased
 
     private void con_MarcaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_con_MarcaKeyReleased
         // TODO add your handling code here:
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Marca Like '%" + con_Marca.getText()+"%';");
-        t.ver_tabla(tabla_vista, "Select * from vista_producto Where Marca Like '%" + con_Marca.getText()+"%';"); 
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';");
+        t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';"); 
         
     }//GEN-LAST:event_con_MarcaKeyReleased
 
