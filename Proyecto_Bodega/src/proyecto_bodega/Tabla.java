@@ -89,7 +89,7 @@ public class Tabla{
         tabla.setDefaultRenderer(Object.class, new render());
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
-        res=Conexion.Conexion.Consulta("select * from ViewPedidos");
+        res=Conexion.Conexion.Consulta("select * from vistapedido");
         btn4.setName("Co");
         btn5.setName("Ca");
         try {
@@ -138,7 +138,7 @@ public class Tabla{
     public void ver_tabla_maestra_pedidos(JTable tabla){
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);
-        res=Conexion.Conexion.Consulta("select * from Pedido;");
+        res=Conexion.Conexion.Consulta("select * from pedido;");
         try {
             
             while(res.next()){
