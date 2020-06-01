@@ -231,10 +231,10 @@ public class Modificaciones extends javax.swing.JFrame {
         }else{
             try {
                this.setVisible(false);
-               Conexion.Conexion.Ejecutar("BEGIN TRAN \n update productos SET Nombre="+"'"+Md_Nombre_producto.getText() +"'"+ "," +
+               Conexion.Conexion.Ejecutar("BEGIN; \n update productos SET Nombre="+"'"+Md_Nombre_producto.getText() +"'"+ "," +
                                "tipo="+"'"+Md_Tipo.getSelectedItem().toString()+"'"+","+
                                "marca="+"'"+ Md_Marca.getText() +"'"+","+
-                               "peso="+ Md_Peso.getValue()+","+"precio="+Md_Precio.getValue()+" where IDProducto ='"+ID_prodcuto_selected+"'; \n COMMIT TRAN");
+                               "peso="+ Md_Peso.getValue()+","+"precio="+Md_Precio.getValue()+" where IDProducto ='"+ID_prodcuto_selected+"'; \n COMMIT;");
             
             } catch (Exception e) {
                 //JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);

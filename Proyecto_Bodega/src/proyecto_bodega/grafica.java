@@ -21,7 +21,7 @@ public class grafica {
     Vector v = new Vector();
     
         public void obtener_info(){
-        res=Conexion.Conexion.Consulta("SELECT count(tipo), tipo FROM vista_producto GROUP BY tipo;");
+        res=Conexion.Conexion.Consulta("SELECT count(tipo), tipo FROM vistaproducto GROUP BY tipo;");
         try {
             while(res.next()){
                 data.setValue(res.getString(2).toString()+": "+ new Integer(res.getInt(1)), new Integer(res.getInt(1)));
