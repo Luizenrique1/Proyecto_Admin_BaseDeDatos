@@ -20,9 +20,9 @@ public class Conexion {
     public static Connection con=null;
     public static Connection getConnection(){
         //DESKTOP-DMHSAF3 laptop
-    String url = "jdbc:sqlserver://DESKTOP-DDNUBG6:1433;databaseName=Bodega";
+    String url = "jdbc:postgresql://localhost:5432/Bodega";
         try {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Class.forName("org.postgresql.Driver");
                     
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null,"No se puede establecer conexion.. revisa drivers" + e.getMessage(),
@@ -30,7 +30,7 @@ public class Conexion {
         }
     
         try {
-            con = DriverManager.getConnection(url,"Luiz","12345");
+            con = DriverManager.getConnection(url,"postgres","12345");
         } catch (SQLException e) {
              JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage(),
                     "error de conexion",JOptionPane.ERROR_MESSAGE);

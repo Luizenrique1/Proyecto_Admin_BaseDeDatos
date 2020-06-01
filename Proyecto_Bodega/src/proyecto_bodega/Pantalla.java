@@ -47,7 +47,7 @@ public class Pantalla extends javax.swing.JFrame {
         mod.p=this;
     }
     public void actualizar_tabla(){
-         t.ver_tabla(tabla_vista,"select * from Vista_producto;");
+         t.ver_tabla(tabla_vista,"SELECT nombre, tipo, marca, peso, precio FROM public.vistaproducto;");
     }
     
     public boolean isValidName(String name)
