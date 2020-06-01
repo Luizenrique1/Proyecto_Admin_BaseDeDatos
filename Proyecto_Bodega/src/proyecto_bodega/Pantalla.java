@@ -703,13 +703,6 @@ public class Pantalla extends javax.swing.JFrame {
         mod.setVisible(false);
         boolean validacion=true;
         
-        try {
-            ResultSet res = Conexion.Conexion.Consulta("SELECT public.obtenercantidad()");
-            res.next();
-            System.out.println("cantidad: "+ res.getInt(1));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
         if (!isValidName(Alta_nombreProducto.getText())) {
            validacion=false;
            JOptionPane.showMessageDialog(this,"Campo invalido o vacia en nombre producto","Error",JOptionPane.WARNING_MESSAGE);
@@ -728,13 +721,25 @@ public class Pantalla extends javax.swing.JFrame {
              //JOptionPane.showMessageDialog(this,"Campo invalido o vacia","Error",JOptionPane.WARNING_MESSAGE);
         }else{
             try {
+                ResultSet res = Conexion.Conexion.Consulta("SELECT public.obtenercantidad()");
+                res.next();
+                //System.out.println("cantidad: "+ res.getInt(1));
+                int cantidad =  res.getInt(1);
+                if (cantidad==0) {
+                     Conexion.Conexion.Ejecutar("INSERT INTO public.productos(" +
+"                       idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO1'"+",1,"
+                        +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
+                        +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
+                }else{
                 
                 
-                Conexion.Conexion.Ejecutar("execute InsertarProducto "+"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
-               +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+ "," +0+",p,"+ 0+";");
-                reset_buttonActionPerformed(evt);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
+                
+                }
+               
+                //reset_buttonActionPerformed(evt);
+            } catch (SQLException e) {
+                System.out.println(e);
+                //JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
             }
         actualizar_tabla();
         }

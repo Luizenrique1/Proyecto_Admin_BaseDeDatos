@@ -59,6 +59,7 @@ public class Conexion {
             declara.executeQuery(consulta);
             
         } catch (SQLException e) {
+            System.out.println(e);;
             if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
                 JOptionPane.showMessageDialog(null,
                     "Se actualizo el base de datos correctamente");
