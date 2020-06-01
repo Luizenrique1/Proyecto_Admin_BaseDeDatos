@@ -743,7 +743,7 @@ public class Pantalla extends javax.swing.JFrame {
                 
                 }
                
-                //reset_buttonActionPerformed(evt);
+                reset_buttonActionPerformed(evt);
             } catch (Exception e) {
                // System.out.println(e);
                 JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
