@@ -6,6 +6,7 @@
 package proyecto_bodega;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
@@ -27,7 +28,7 @@ public class Pedido_nuevo extends javax.swing.JFrame {
     int cantidad=0;
     public void insertar_datos(String nombre,String tipo,String marca,double peso,double precio){
         
-        res=Conexion.Conexion.Consulta("Select IDProducto From Producto where nombre=" +"'"+nombre+"'" );
+        res=Conexion.Conexion.Consulta("Select idproducto From productos where nombre=" +"'"+nombre+"'" );
         
         
         
@@ -281,11 +282,26 @@ public class Pedido_nuevo extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this,"Campo invalido o vacia","Error",JOptionPane.WARNING_MESSAGE);
         }else{
             try {
+                ResultSet res = Conexion.Conexion.Consulta("SELECT public.obtenercantidadpedidos()");
+                res.next();
+                //System.out.println("cantidad: "+ res.getInt(1));
+                int cantidad =  res.getInt(1); 
+                System.out.println(cantidad);
+                if (cantidad==0) {
+                    res = Conexion.Conexion.Consulta("select idproducto from productos where nombre="+Md_Nombre_producto.getText());
+                    String idproducto =  res.getString(1); 
+                    System.out.println(idproducto);
+
+                }else{
+                
+                
+                }
                this.setVisible(false);
-               Conexion.Conexion.Ejecutar("execute InsertarPedido "+PE_Cantidad.getValue()+",'"+NP_Calle.getText() +"','"+ NP_NUMCASa.getText()+"','"+NP_NT.getText()+"',0,'','"+Md_Nombre_producto.getText()+"',0,''" );
+               //Conexion.Conexion.Ejecutar("execute InsertarPedido "+PE_Cantidad.getValue()+",'"+NP_Calle.getText() +"','"+ NP_NUMCASa.getText()+"','"+NP_NT.getText()+"',0,'','"+Md_Nombre_producto.getText()+"',0,''" );
             
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,"Error al insertar datos","Error",JOptionPane.WARNING_MESSAGE);
+            } catch (SQLException e) {
+                //System.out.println(e);
+               // JOptionPane.showMessageDialog(this,"Error al insertar datos","Error",JOptionPane.WARNING_MESSAGE);
             }
 
         }
