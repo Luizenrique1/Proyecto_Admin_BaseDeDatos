@@ -85,7 +85,7 @@ public class Conexion {
                 JOptionPane.showMessageDialog(null,
                     "Se actualizo el base de datos correctamente");
                
-            }else{
+            }else if (!e.getMessage().equals("La consulta no retornó ningún resultado.")){
             JOptionPane.showMessageDialog(null,"Producto siendo usado en pedidos" ,
                     "ERROR",JOptionPane.ERROR_MESSAGE);
                     //System.out.println(e);
