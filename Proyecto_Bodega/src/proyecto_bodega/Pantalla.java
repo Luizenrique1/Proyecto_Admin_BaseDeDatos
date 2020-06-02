@@ -723,11 +723,10 @@ public class Pantalla extends javax.swing.JFrame {
             try {
                 ResultSet res = Conexion.Conexion.Consulta("SELECT public.obtenercantidad()");
                 res.next();
-                //System.out.println("cantidad: "+ res.getInt(1));
                 int cantidad =  res.getInt(1);
                 if (cantidad==0) {
                         Conexion.Conexion.Ejecutar("INSERT INTO public.productos(" +
-"                       idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO1'"+",1,"
+                        "idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO1'"+",1,"
                         +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
                         +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
                 }else{
