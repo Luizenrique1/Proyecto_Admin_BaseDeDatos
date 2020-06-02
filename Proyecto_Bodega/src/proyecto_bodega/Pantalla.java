@@ -807,7 +807,7 @@ public class Pantalla extends javax.swing.JFrame {
                     
                     if(n == JOptionPane.YES_OPTION)
                     {
-                        Conexion.Conexion.Eliminar_Producto("Delete from Vista_producto where Nombre='"+NombreProducto+"';");
+                        Conexion.Conexion.Eliminar_Producto("Delete from productos where Nombre='"+NombreProducto+"';");
                         actualizar_tabla();
                         //JOptionPane.showMessageDialog(null, "registro Eliminado");
                     }
