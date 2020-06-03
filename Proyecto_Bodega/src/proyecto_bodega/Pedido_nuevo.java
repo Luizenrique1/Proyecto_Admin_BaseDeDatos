@@ -296,7 +296,16 @@ public class Pedido_nuevo extends javax.swing.JFrame {
                     "VALUES ('PE1',1,'"+idproducto+"',"+PE_Cantidad.getValue()+",'"+NP_Calle.getText() +"','"+ NP_NUMCASa.getText()+"','"+NP_NT.getText()+"');" );
             
                 }else{
-                
+                    res = Conexion.Conexion.Consulta("select idproducto from productos where nombre='"+Md_Nombre_producto.getText()+"';");
+                    res.next();
+                    String idproducto =  res.getString(1); 
+                    res = Conexion.Conexion.Consulta("SELECT public.obtenerintpedido()");
+                    res.next();
+                    cantidad=res.getInt(1);
+                    Conexion.Conexion.Ejecutar("INSERT INTO pedido(" +
+                    "idpedido, idpumero, idproducto, cantidad, calle, numero_domicilio, numero_tele)" +
+                    "VALUES ('PE"+cantidad+"',1,'"+idproducto+"',"+PE_Cantidad.getValue()+",'"+NP_Calle.getText() +"','"+ NP_NUMCASa.getText()+"','"+NP_NT.getText()+"');" );
+            
                 
                 }
                this.setVisible(false);
