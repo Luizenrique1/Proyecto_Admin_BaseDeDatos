@@ -31,7 +31,9 @@ public class Conexion {
     
         try {
             con = DriverManager.getConnection(url,"postgres","12345");
+            
         } catch (SQLException e) {
+            System.out.println(e);
              JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage(),
                     "error de conexion",JOptionPane.ERROR_MESSAGE);
         }
@@ -59,7 +61,7 @@ public class Conexion {
             declara.executeQuery(consulta);
             
         } catch (SQLException e) {
-            System.out.println(e);
+           System.out.println(e);
             if (e.getMessage().equals("La instrucción no devolvió un conjunto de resultados.")) {
                 JOptionPane.showMessageDialog(null,
                     "Se actualizo el base de datos correctamente");

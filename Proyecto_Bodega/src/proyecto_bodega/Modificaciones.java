@@ -116,7 +116,7 @@ public class Modificaciones extends javax.swing.JFrame {
 
         jLabel3.setText("Tipo Producto");
 
-        Md_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selectione una opcion..", "Molido", "Paca", "Grano", "enlatado", "enbotellado", "enpaquetado", "fierro nuevo" }));
+        Md_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
 
         jLabel4.setText("Marca Producto");
 

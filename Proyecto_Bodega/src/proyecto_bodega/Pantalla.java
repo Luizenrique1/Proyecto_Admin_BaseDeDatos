@@ -244,7 +244,7 @@ public class Pantalla extends javax.swing.JFrame {
         lbl_nombre28.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_nombre28.setText("Cantidad de producto");
 
-        Alta_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selectione una opcion..", "Molido", "Paca", "Grano", "enlatado", "enbotellado", "enpaquetado", "fierro nuevo" }));
+        Alta_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
 
         Alta_PEso.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -531,7 +531,6 @@ public class Pantalla extends javax.swing.JFrame {
         jMenu2.add(jMenuItem5);
 
         jMenuItem4.setText("Pedidos completados");
-        jMenuItem4.setActionCommand("Pedidos completados");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -727,24 +726,25 @@ public class Pantalla extends javax.swing.JFrame {
                 if (cantidad==0) {
                         Conexion.Conexion.Ejecutar("INSERT INTO public.productos(" +
                         "idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO1'"+",1,"
-                        +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
-                        +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
+                        +"'"+Alta_nombreProducto.getText().toUpperCase()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
+                        +","+"'"+Alta_Marca.getText().toUpperCase()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
                 }else{
                     
                     res = Conexion.Conexion.Consulta("SELECT public.obtenerint()");
                     res.next();
                     cantidad =  res.getInt(1);
+                    System.out.println("z"+cantidad);
                         Conexion.Conexion.Ejecutar("INSERT INTO public.productos(" +
 "                       idproducto, idnumero, nombre, tipo, marca, peso, precio) VALUES"+" ('PO"+cantidad+"'"+","+cantidad+","
-                        +"'"+Alta_nombreProducto.getText()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
-                        +","+"'"+Alta_Marca.getText()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
+                        +"'"+Alta_nombreProducto.getText().toUpperCase()+"'"+","+"'"+Alta_Tipo.getSelectedItem().toString()+"'"
+                        +","+"'"+Alta_Marca.getText().toUpperCase()+"'"+","+ Alta_PEso.getValue() +"," + Alta_precio.getValue()+");");
                 
                 
                 }
                
                 reset_buttonActionPerformed(evt);
             } catch (Exception e) {
-               // System.out.println(e);
+               //System.out.println(e);
                 JOptionPane.showMessageDialog(this,"Nombres de productos ya existe en la base de datos","Error",JOptionPane.WARNING_MESSAGE);
             }
         actualizar_tabla();
@@ -829,14 +829,14 @@ public class Pantalla extends javax.swing.JFrame {
     private void Buscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar
         // TODO add your handling code here:
         if (con_rb_NP.isSelected()) {
-            t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText()+"%';");
+            t.ver_tabla(tabla_vista, "Select * from vistaproducto Where nombre like '%" + con_Nombre_Producto_txt.getText().toUpperCase()+"%';");
         }
         if (rb_tipo.isSelected()) {
             if(con_Tipo.getSelectedIndex()!=0)
             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where tipo = '" + con_Tipo.getSelectedItem().toString()+"';");
         }
         if (rb_marca.isSelected()) {
-             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText()+"%';");
+             t.ver_tabla(tabla_vista, "Select * from vistaproducto Where marca Like '%" + con_Marca.getText().toUpperCase()+"%';");
         }
         if (rb_peso.isSelected()) {
             if((int)con_peso.getValue()>0){

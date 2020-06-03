@@ -473,15 +473,14 @@
             <Component class="javax.swing.JComboBox" name="Alta_Tipo">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="8">
-                    <StringItem index="0" value="Selectione una opcion.."/>
-                    <StringItem index="1" value="Molido"/>
-                    <StringItem index="2" value="Paca"/>
-                    <StringItem index="3" value="Grano"/>
-                    <StringItem index="4" value="enlatado"/>
-                    <StringItem index="5" value="enbotellado"/>
-                    <StringItem index="6" value="enpaquetado"/>
-                    <StringItem index="7" value="fierro nuevo"/>
+                  <StringArray count="7">
+                    <StringItem index="0" value="SELECCIONE UNA OPCION..."/>
+                    <StringItem index="1" value="MOLIDO"/>
+                    <StringItem index="2" value="PACA"/>
+                    <StringItem index="3" value="GRANO"/>
+                    <StringItem index="4" value="ENBOTELLADO"/>
+                    <StringItem index="5" value="ENPAQUETADO"/>
+                    <StringItem index="6" value="FIERRO NUEVO"/>
                   </StringArray>
                 </Property>
               </Properties>
