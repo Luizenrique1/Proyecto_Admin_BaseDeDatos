@@ -7,7 +7,8 @@ package proyecto_bodega;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author Luiz
@@ -148,7 +149,30 @@ public class Pedidos extends javax.swing.JFrame {
                     
                     if(n == JOptionPane.YES_OPTION)
                     {
-                        Conexion.Conexion.Ejecutar("execute PedidoEntregado '"+ NombreProducto+"',"+Cantidad+",'"+Calle+"','"+Numdomicilio+"','"+Telefono+"','','';");
+                        
+                        
+                        try {
+                        ResultSet res = Conexion.Conexion.Consulta("select productos.idproducto From public.Productos where nombre='"+NombreProducto+"';");
+                        res.next();
+                        String idp=res.getString(1);
+                       // System.out.println(idp);
+                       Conexion.Conexion.Ejecutar("UPDATE public.productos SET peso=peso-"+Cantidad+" WHERE idproducto='"+idp+"';");
+                        res = Conexion.Conexion.Consulta("select pedido.idpedido From public.pedido where pedido.idproducto='"+idp+"' and pedido.cantidad="+Cantidad+" and pedido.calle = '"+Calle +"'" +
+"and pedido.numero_domicilio='"+Numdomicilio+"' and pedido.numero_tele='"+Telefono+"';");
+                        res.next();
+                        String idpe=res.getString(1);
+                       // System.out.println(idpe);
+                        
+                        Conexion.Conexion.Ejecutar("DELETE FROM public.pedido WHERE pedido.idpedido='"+idpe+"';");
+                        actualizarT();
+                        JOptionPane.showMessageDialog(null, "pedido Eliminado");
+                            
+                        } catch (SQLException e) {
+                            // System.out.println(e);
+                        }
+                        
+                        
+                        //Conexion.Conexion.Ejecutar("execute PedidoEntregado '"+ NombreProducto+"',"+Cantidad+",'"+Calle+"','"+Numdomicilio+"','"+Telefono+"','','';");
                         //Conexion.Conexion.Ejecutar(
                         //"insert into pedidoscompletos(nombreProducto,cantidad,calle,numero_Domicilio,numero_tele) values ('"+
                                 //NombreProducto+"',"+Cantidad+",'"+Calle+"','"+Numdomicilio+"','"+Telefono+"');");
@@ -169,9 +193,24 @@ public class Pedidos extends javax.swing.JFrame {
                     
                     if(n == JOptionPane.YES_OPTION)
                     {
-                        Conexion.Conexion.Ejecutar("execute CompletarPedido '"+ NombreProducto+"',"+Cantidad+",'"+Calle+"','"+Numdomicilio+"','"+Telefono+"','','';");
+                        try {
+                        ResultSet res = Conexion.Conexion.Consulta("select productos.idproducto From public.Productos where nombre='"+NombreProducto+"';");
+                        res.next();
+                        String idp=res.getString(1);
+                       // System.out.println(idp);
+                        res = Conexion.Conexion.Consulta("select pedido.idpedido From public.pedido where pedido.idproducto='"+idp+"' and pedido.cantidad="+Cantidad+" and pedido.calle = '"+Calle +"'" +
+"and pedido.numero_domicilio='"+Numdomicilio+"' and pedido.numero_tele='"+Telefono+"';");
+                        res.next();
+                        String idpe=res.getString(1);
+                       // System.out.println(idpe);
+                        
+                        Conexion.Conexion.Ejecutar("DELETE FROM public.pedido WHERE pedido.idpedido='"+idpe+"';");
                         actualizarT();
-                        //JOptionPane.showMessageDialog(null, "registro Eliminado");
+                        JOptionPane.showMessageDialog(null, "pedido Eliminado");
+                            
+                        } catch (SQLException e) {
+                            // System.out.println(e);
+                        }
                     }
                     
                 } 
