@@ -30,7 +30,7 @@ public class Conexion {
         }
     
         try {
-            con = DriverManager.getConnection(url,"postgres","12345");
+            con = DriverManager.getConnection(url,"Luiz","Admin");
             
         } catch (SQLException e) {
             System.out.println(e);
