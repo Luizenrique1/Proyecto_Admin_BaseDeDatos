@@ -151,14 +151,15 @@
         <Component class="javax.swing.JComboBox" name="Md_Tipo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
+              <StringArray count="8">
                 <StringItem index="0" value="SELECCIONE UNA OPCION..."/>
                 <StringItem index="1" value="MOLIDO"/>
                 <StringItem index="2" value="PACA"/>
                 <StringItem index="3" value="GRANO"/>
-                <StringItem index="4" value="ENBOTELLADO"/>
-                <StringItem index="5" value="ENPAQUETADO"/>
-                <StringItem index="6" value="FIERRO NUEVO"/>
+                <StringItem index="4" value="ENLATADO"/>
+                <StringItem index="5" value="ENBOTELLADO"/>
+                <StringItem index="6" value="ENPAQUETADO"/>
+                <StringItem index="7" value="FIERRO NUEVO"/>
               </StringArray>
             </Property>
           </Properties>

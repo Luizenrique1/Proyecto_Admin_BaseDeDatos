@@ -116,7 +116,7 @@ public class Modificaciones extends javax.swing.JFrame {
 
         jLabel3.setText("Tipo Producto");
 
-        Md_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
+        Md_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENLATADO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
 
         jLabel4.setText("Marca Producto");
 
@@ -231,9 +231,9 @@ public class Modificaciones extends javax.swing.JFrame {
         }else{
             try {
                this.setVisible(false);
-               Conexion.Conexion.Ejecutar("BEGIN; \n update productos SET Nombre="+"'"+Md_Nombre_producto.getText() +"'"+ "," +
+               Conexion.Conexion.Ejecutar("BEGIN; \n update productos SET Nombre="+"'"+Md_Nombre_producto.getText().toUpperCase() +"'"+ "," +
                                "tipo="+"'"+Md_Tipo.getSelectedItem().toString()+"'"+","+
-                               "marca="+"'"+ Md_Marca.getText() +"'"+","+
+                               "marca="+"'"+ Md_Marca.getText().toUpperCase() +"'"+","+
                                "peso="+ Md_Peso.getValue()+","+"precio="+Md_Precio.getValue()+" where IDProducto ='"+ID_prodcuto_selected+"'; \n COMMIT;");
             
             } catch (Exception e) {

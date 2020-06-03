@@ -244,7 +244,7 @@ public class Pantalla extends javax.swing.JFrame {
         lbl_nombre28.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl_nombre28.setText("Cantidad de producto");
 
-        Alta_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
+        Alta_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE UNA OPCION...", "MOLIDO", "PACA", "GRANO", "ENLATADO", "ENBOTELLADO", "ENPAQUETADO", "FIERRO NUEVO" }));
 
         Alta_PEso.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -777,19 +777,27 @@ public class Pantalla extends javax.swing.JFrame {
                 if (button.getName().equals("M")) {
                    mod.setVisible(true);
                    pd.setVisible(false);
-                    if (Tipo_producto.equals("Molido")) {
+/*                   /*SELECCIONE UNA OPCION...
+MOLIDO
+PACA
+GRANO
+ENLATADO                   
+ENBOTELLADO
+ENPAQUETADO
+FIERRO NUEVO*/
+                    if (Tipo_producto.equals("MOLIDO")) {
                         x=1;
-                    }else if (Tipo_producto.equals("Paca")) {
+                    }else if (Tipo_producto.equals("PACA")) {
                         x=2;
-                    }else if (Tipo_producto.equals("Grano")) {
+                    }else if (Tipo_producto.equals("GRANO")) {
                         x=3;
-                    }else if (Tipo_producto.equals("enlatado")) {
+                    }else if (Tipo_producto.equals("ENLATADO")) {
                         x=3;
-                    }else if (Tipo_producto.equals("enbotellado")) {
+                    }else if (Tipo_producto.equals("ENBOTELLADO")) {
                         x=3;
-                    }else if (Tipo_producto.equals("enpaquetado")) {
+                    }else if (Tipo_producto.equals("ENPAQUETADO")) {
                         x=3;
-                    }else if (Tipo_producto.equals("Fierro nuevo")) {
+                    }else if (Tipo_producto.equals("FIERRO NUEVO")) {
                         x=3;
                     }
                    mod.insertar_datos(NombreProducto,x, Marca, Peso, Precio);
